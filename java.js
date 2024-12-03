@@ -30,18 +30,19 @@ document.addEventListener("DOMContentLoaded", function () {
   const today = new Date();
   const currentDay = today.getDate();
 
+  // Seleciona todos os botões que têm id no formato "dia-X"
   for (let day = 1; day <= 31; day++) {
     const button = document.getElementById(`dia-${day}`);
     
     if (button) {
       if (day > currentDay) {
-        button.disabled = true;
+        button.disabled = true; // Desabilita o botão para dias futuros
         button.addEventListener("click", () => {
           alert("Você só pode abrir este presente no dia correspondente!");
         });
       } else {
         button.addEventListener("click", () => {
-          alert(`Surpresa do dia ${day} 🎁!`);
+          alert(`Surpresa do dia ${day}!🎁`);
         });
       }
     }
