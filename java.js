@@ -26,3 +26,24 @@ function mostrarSecao(id) {
 document.addEventListener("DOMContentLoaded", function () {
   mostrarSecao("calendario_principal");
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const today = new Date();
+  const currentDay = today.getDate();
+
+  for (let day = 1; day <= 31; day++) {
+    const button = document.getElementById(`dia-${day}`);
+    
+    if (button) {
+      if (day > currentDay) {
+        button.disabled = true;
+        button.addEventListener("click", () => {
+          alert("Você só pode abrir este presente no dia correspondente!");
+        });
+      } else {
+        button.addEventListener("click", () => {
+          alert(`Surpresa do dia ${day} 🎁!`);
+        });
+      }
+    }
+  }
+});
